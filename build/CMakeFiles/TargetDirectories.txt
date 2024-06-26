@@ -1,0 +1,3 @@
+/home/kubuski/Projects/1pOpenGL/build/CMakeFiles/opengl.dir
+/home/kubuski/Projects/1pOpenGL/build/CMakeFiles/edit_cache.dir
+/home/kubuski/Projects/1pOpenGL/build/CMakeFiles/rebuild_cache.dir

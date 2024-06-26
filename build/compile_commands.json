@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/kubuski/Projects/1pOpenGL/build",
+  "command": "/usr/bin/g++  -I/home/kubuski/Projects/1pOpenGL/include -I/home/kubuski/Projects/1pOpenGL/include/GLFW -I/home/kubuski/Projects/1pOpenGL/include/glad -I/home/kubuski/Projects/1pOpenGL/include/stb_image -I/home/kubuski/Projects/1pOpenGL/include/glm -I/home/kubuski/Projects/1pOpenGL/include/KHR -g -std=gnu++20 -o CMakeFiles/opengl.dir/src/main.cpp.o -c /home/kubuski/Projects/1pOpenGL/src/main.cpp",
+  "file": "/home/kubuski/Projects/1pOpenGL/src/main.cpp",
+  "output": "CMakeFiles/opengl.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/kubuski/Projects/1pOpenGL/build",
+  "command": "/usr/bin/gcc  -I/home/kubuski/Projects/1pOpenGL/include -I/home/kubuski/Projects/1pOpenGL/include/GLFW -I/home/kubuski/Projects/1pOpenGL/include/glad -I/home/kubuski/Projects/1pOpenGL/include/stb_image -I/home/kubuski/Projects/1pOpenGL/include/glm -I/home/kubuski/Projects/1pOpenGL/include/KHR -g -o CMakeFiles/opengl.dir/src/glad.c.o -c /home/kubuski/Projects/1pOpenGL/src/glad.c",
+  "file": "/home/kubuski/Projects/1pOpenGL/src/glad.c",
+  "output": "CMakeFiles/opengl.dir/src/glad.c.o"
+},
+{
+  "directory": "/home/kubuski/Projects/1pOpenGL/build",
+  "command": "/usr/bin/g++  -I/home/kubuski/Projects/1pOpenGL/include -I/home/kubuski/Projects/1pOpenGL/include/GLFW -I/home/kubuski/Projects/1pOpenGL/include/glad -I/home/kubuski/Projects/1pOpenGL/include/stb_image -I/home/kubuski/Projects/1pOpenGL/include/glm -I/home/kubuski/Projects/1pOpenGL/include/KHR -g -std=gnu++20 -o CMakeFiles/opengl.dir/src/shader.cpp.o -c /home/kubuski/Projects/1pOpenGL/src/shader.cpp",
+  "file": "/home/kubuski/Projects/1pOpenGL/src/shader.cpp",
+  "output": "CMakeFiles/opengl.dir/src/shader.cpp.o"
+},
+{
+  "directory": "/home/kubuski/Projects/1pOpenGL/build",
+  "command": "/usr/bin/g++  -I/home/kubuski/Projects/1pOpenGL/include -I/home/kubuski/Projects/1pOpenGL/include/GLFW -I/home/kubuski/Projects/1pOpenGL/include/glad -I/home/kubuski/Projects/1pOpenGL/include/stb_image -I/home/kubuski/Projects/1pOpenGL/include/glm -I/home/kubuski/Projects/1pOpenGL/include/KHR -g -std=gnu++20 -o CMakeFiles/opengl.dir/src/camera.cpp.o -c /home/kubuski/Projects/1pOpenGL/src/camera.cpp",
+  "file": "/home/kubuski/Projects/1pOpenGL/src/camera.cpp",
+  "output": "CMakeFiles/opengl.dir/src/camera.cpp.o"
+},
+{
+  "directory": "/home/kubuski/Projects/1pOpenGL/build",
+  "command": "/usr/bin/g++  -I/home/kubuski/Projects/1pOpenGL/include -I/home/kubuski/Projects/1pOpenGL/include/GLFW -I/home/kubuski/Projects/1pOpenGL/include/glad -I/home/kubuski/Projects/1pOpenGL/include/stb_image -I/home/kubuski/Projects/1pOpenGL/include/glm -I/home/kubuski/Projects/1pOpenGL/include/KHR -g -std=gnu++20 -o CMakeFiles/opengl.dir/src/movement.cpp.o -c /home/kubuski/Projects/1pOpenGL/src/movement.cpp",
+  "file": "/home/kubuski/Projects/1pOpenGL/src/movement.cpp",
+  "output": "CMakeFiles/opengl.dir/src/movement.cpp.o"
+}
+]
