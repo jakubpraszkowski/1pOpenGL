@@ -11,10 +11,10 @@
 
 class Movement {
 public:
-    void processInput(GLFWwindow *window);
-    void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-    void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
+    void ProcessInput(std::unique_ptr<GLFWwindow>& window);
+    void ScrollCallback(GLFWwindow* window, double x_offset, double y_offset);
+    void MouseCallback(GLFWwindow* window, double x_pos_in, double y_pos_in);
 
 private:
-    std::unique_ptr<Game> game;
+    std::unique_ptr<Game> game_;
 };
