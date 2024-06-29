@@ -9,7 +9,6 @@ add_executable(${PROJECT_NAME}
     src/glad.c
     src/shader.cpp
     src/camera.cpp
-    src/movement.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

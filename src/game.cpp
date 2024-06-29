@@ -5,6 +5,40 @@ void FramebufferSizeCallback(GLFWwindow *window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+void MouseCallback(GLFWwindow *window, double x_pos_in, double y_pos_in)
+{
+    Game *game = static_cast<Game *>(glfwGetWindowUserPointer(window));
+    if (game)
+    {
+        float x_pos = static_cast<float>(x_pos_in);
+        float y_pos = static_cast<float>(y_pos_in);
+
+        if (game->GetFirstMouse())
+        {
+            game->SetLastX(x_pos);
+            game->SetLastY(y_pos);
+            game->SetMouse(false);
+        }
+
+        float x_offset = x_pos - game->GetLastX();
+        float y_offset = game->GetLastY() - y_pos;
+
+        game->SetLastX(x_pos);
+        game->SetLastY(y_pos);
+
+        game->GetCamera()->ProcessMouseMovement(x_offset, y_offset);
+    }
+}
+
+void ScrollCallback(GLFWwindow *window, double x_offset, double y_offset)
+{
+    Game *game = static_cast<Game *>(glfwGetWindowUserPointer(window));
+    if (game)
+    {
+        game->GetCamera()->ProcessMouseScroll(y_offset);
+    }
+}
+
 Game::Game()
 {
     glfwInit();
@@ -22,9 +56,10 @@ Game::Game()
     }
 
     glfwMakeContextCurrent(window_.get());
+    glfwSetWindowUserPointer(window_.get(), this);
     glfwSetFramebufferSizeCallback(window_.get(), FramebufferSizeCallback);
-    // glfwSetCursorPosCallback(window_.get(), movement_->MouseCallback);
-    // glfwSetScrollCallback(window_.get(), movement_->ScrollCallback);
+    glfwSetCursorPosCallback(window_.get(), MouseCallback);
+    glfwSetScrollCallback(window_.get(), ScrollCallback);
 }
 
 void Game::GameLoop()
@@ -35,7 +70,7 @@ void Game::GameLoop()
         delta_time_ = current_frame - last_frame_;
         last_frame_ = current_frame;
 
-        // movement_->ProcessInput(window_);
+        ProcessInput(window_);
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -55,4 +90,34 @@ float Game::GetDeltaTime() const
 float Game::GetLastFrame() const
 {
     return last_frame_;
+}
+
+bool Game::GetFirstMouse() const
+{
+    return first_mouse_;
+}
+
+float Game::GetLastX() const
+{
+    return last_x;
+}
+
+float Game::GetLastY() const
+{
+    return last_y;
+}
+
+std::unique_ptr<Camera> &Game::GetCamera()
+{
+    return camera_;
+}
+
+void Game::SetLastX(float x)
+{
+    last_x = x;
+}
+
+void Game::SetLastY(float y)
+{
+    last_y = y;
 }

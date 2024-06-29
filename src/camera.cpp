@@ -59,6 +59,31 @@ glm::mat4 Camera::GetViewMatrix()
     return glm::lookAt(position_, position_ + front_, up_);
 }
 
+float Camera::GetZoom() const
+{
+    return zoom_;
+}
+
+float Camera::GetYaw() const
+{
+    return yaw_;
+}
+
+float Camera::GetPitch() const
+{
+    return pitch_;
+}
+
+float Camera::GetMovementSpeed() const
+{
+    return movement_speed_;
+}
+
+float Camera::GetMouseSensitivity() const
+{
+    return mouse_sensitivity_;
+}
+
 /* Private methods */
 
 void Camera::updateCameraVectors()

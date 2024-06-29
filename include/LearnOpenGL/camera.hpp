@@ -28,6 +28,11 @@ public:
 
     /* Getters and setters */
     glm::mat4 GetViewMatrix();
+    float GetZoom() const;
+    float GetYaw() const;
+    float GetPitch() const;
+    float GetMovementSpeed() const;
+    float GetMouseSensitivity() const;
 
 private:
     void updateCameraVectors();
