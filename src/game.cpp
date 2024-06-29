@@ -23,8 +23,8 @@ Game::Game()
 
     glfwMakeContextCurrent(window_.get());
     glfwSetFramebufferSizeCallback(window_.get(), FramebufferSizeCallback);
-    glfwSetCursorPosCallback(window_.get(), movement_->MouseCallback);
-    glfwSetScrollCallback(window_.get(), movement_->ScrollCallback);
+    // glfwSetCursorPosCallback(window_.get(), movement_->MouseCallback);
+    // glfwSetScrollCallback(window_.get(), movement_->ScrollCallback);
 }
 
 void Game::GameLoop()
@@ -35,7 +35,7 @@ void Game::GameLoop()
         delta_time_ = current_frame - last_frame_;
         last_frame_ = current_frame;
 
-        movement_->ProcessInput(window_);
+        // movement_->ProcessInput(window_);
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
