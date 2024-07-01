@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/opengl.dir/src/main.cpp.o CMakeFiles/opengl.dir/src/glad.c.o CMakeFiles/opengl.dir/src/shader.cpp.o CMakeFiles/opengl.dir/src/camera.cpp.o CMakeFiles/opengl.dir/src/movement.cpp.o -o opengl  /usr/lib64/libGL.so /usr/lib64/libglfw.so.3.3 /usr/lib64/libX11.so /usr/lib64/libXext.so 

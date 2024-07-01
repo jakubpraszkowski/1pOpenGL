@@ -118,14 +118,14 @@ void Shader::SetMat4(const std::string &name, const glm::mat4 &mat) const
     glUniformMatrix4fv(glGetUniformLocation(id_, name.c_str()), 1, GL_FALSE, &mat[0][0]);
 }
 
-uint64_t Shader::GetId() const
+GLint Shader::GetId() const
 {
     return id_;
 }
 
 /* Private methods */
 
-void Shader::CheckCompileErrors(uint64_t shader, std::string type)
+void Shader::CheckCompileErrors(GLuint shader, std::string type)
 {
     int success;
     char info_log[1024];

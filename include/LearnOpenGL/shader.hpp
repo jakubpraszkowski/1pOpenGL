@@ -29,10 +29,10 @@ public:
     void SetMat3(const std::string &name, const glm::mat3 &mat) const;
     void SetMat4(const std::string &name, const glm::mat4 &mat) const;
 
-    uint64_t GetId() const;
+    GLint GetId() const;
 
 private:
-    void CheckCompileErrors(uint64_t shader, std::string type);
+    void CheckCompileErrors(GLuint shader, std::string type);
 
-    uint64_t id_;
+    GLint id_;
 };
