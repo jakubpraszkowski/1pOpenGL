@@ -1,27 +1,30 @@
 #include <LearnOpenGL/texture.hpp>
+#include "stb_image_impl.cpp"
 
-Texture::Texture(uint64_t width, uint64_t height, unsigned char *data, uint64_t nr_channels)
+Texture::Texture(GLuint64 width, GLuint64 height, unsigned char *data, uint64_t nr_channels)
 {
     width_ = width;
     height_ = height;
 
     GLenum format = CheckFormat(nr_channels);
 
-    glGenTextures(1, reinterpret_cast<GLuint *>(&id_));
+    glGenTextures(1, &id_);
     glBindTexture(GL_TEXTURE_2D, id_);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    stbi_set_flip_vertically_on_load(true);
 
     if (!data)
     {
         std::cerr << "Failed to load texture" << std::endl;
     }
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width_, height_, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, static_cast<GLsizei>(width_), static_cast<GLsizei>(height_), 0, format, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap_s_);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap_t_);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filter_min_);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter_max_);
 
     stbi_image_free(data);
 }

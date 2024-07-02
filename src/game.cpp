@@ -64,6 +64,8 @@ Game::Game()
 
 void Game::GameLoop()
 {
+    player_ = std::make_unique<Player>();
+
     while (!glfwWindowShouldClose(window_.get()))
     {
         float current_frame = glfwGetTime();
