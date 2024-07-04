@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <filesystem>
 
 #include <glad/glad.h>
 
@@ -12,7 +13,8 @@
 class Shader
 {
 public:
-    Shader(const char *vertex_path, const char *fragment_path);
+    // Shader(const char *vertex_path, const char *fragment_path);
+    Shader(std::filesystem::path vertex_path, std::filesystem::path fragment_path);
     void Use() const;
 
     /* Getters and setters */

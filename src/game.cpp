@@ -17,7 +17,7 @@ void MouseCallback(GLFWwindow *window, double x_pos_in, double y_pos_in)
         {
             game->SetLastX(x_pos);
             game->SetLastY(y_pos);
-            game->SetMouse(false);
+            // game->SetMouse(false);
         }
 
         float x_offset = x_pos - game->GetLastX();
@@ -46,7 +46,7 @@ Game::Game()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window_ = std::unique_ptr<GLFWwindow>(glfwCreateWindow(kScrWidth, kScrHeight, "First OpenGL game", nullptr, nullptr));
+    window_ = glfwCreateWindow(kScrWidth, kScrHeight, "First OpenGL game", nullptr, nullptr);
 
     if (window_ == nullptr)
     {
@@ -55,29 +55,36 @@ Game::Game()
         exit(EXIT_FAILURE);
     }
 
-    glfwMakeContextCurrent(window_.get());
-    glfwSetWindowUserPointer(window_.get(), this);
-    glfwSetFramebufferSizeCallback(window_.get(), FramebufferSizeCallback);
-    glfwSetCursorPosCallback(window_.get(), MouseCallback);
-    glfwSetScrollCallback(window_.get(), ScrollCallback);
+    glfwMakeContextCurrent(window_);
+    glfwSetWindowUserPointer(window_, this);
+    glfwSetFramebufferSizeCallback(window_, FramebufferSizeCallback);
+    glfwSetCursorPosCallback(window_, MouseCallback);
+    glfwSetScrollCallback(window_, ScrollCallback);
 }
 
 void Game::GameLoop()
 {
     player_ = std::make_unique<Player>();
 
-    while (!glfwWindowShouldClose(window_.get()))
+    GLint texture1;
+    
+    player_->GetShader()->Use();
+    player_->GetShader()->SetInt("texture1", 0);
+
+    while (!glfwWindowShouldClose(window_))
     {
         float current_frame = glfwGetTime();
         delta_time_ = current_frame - last_frame_;
         last_frame_ = current_frame;
 
-        ProcessInput(window_);
+        // ProcessInput(window_);
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glfwSwapBuffers(window_.get());
+        player_->GetShader()->Use();
+
+        glfwSwapBuffers(window_);
         glfwPollEvents();
     }
 

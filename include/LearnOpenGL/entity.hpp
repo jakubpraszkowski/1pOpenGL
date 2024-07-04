@@ -25,8 +25,11 @@ public:
     glm::vec3 GetPosition() const;
     glm::vec3 GetRotation() const;
     glm::vec3 GetScale() const;
+    std::shared_ptr<Shader> GetShader() const;
+    std::shared_ptr<Texture> GetTexture() const;
 
 protected:
+    unsigned int VBO = 0, VAO = 0;
     glm::vec3 position_ = glm::vec3(0.0f);
     glm::vec3 rotation_ = glm::vec3(0.0f);
     glm::vec3 scale_ = glm::vec3(1.0f);

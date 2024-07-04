@@ -11,6 +11,8 @@ add_executable(${PROJECT_NAME}
     src/camera.cpp
     src/entity.cpp
     src/texture.cpp
+    src/game.cpp
+    src/player.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

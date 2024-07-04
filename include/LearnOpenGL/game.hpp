@@ -22,7 +22,7 @@ public:
     Game();
 
     void GameLoop();
-    void ProcessInput(std::unique_ptr<GLFWwindow> &window);
+    void ProcessInput(GLFWwindow *window);
     
     /* Getters and setters */
     float GetDeltaTime() const;
@@ -41,7 +41,7 @@ private:
     float delta_time_ = 0.0f, last_frame_ = 0.0f;
     bool first_mouse_ = true;
     float last_x = kScrWidth / 2.0f, last_y = kScrHeight / 2.0f;
-    std::unique_ptr<GLFWwindow> window_ = nullptr;
+    GLFWwindow *window_ = nullptr;
     std::unique_ptr<Camera> camera_ = nullptr;
     std::unique_ptr<Player> player_ = nullptr;
     std::vector<std::shared_ptr<Entity>> entities_;

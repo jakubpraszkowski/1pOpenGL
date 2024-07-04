@@ -11,6 +11,7 @@ public:
     Texture(GLuint64 width, GLuint64 height, unsigned char *data, uint64_t nr_channels);
     ~Texture();
 
+    GLuint getId() const;
 private:
     GLenum CheckFormat(uint64_t nr_channels);
 

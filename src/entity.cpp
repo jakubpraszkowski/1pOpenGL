@@ -1,11 +1,15 @@
 #include <LearnOpenGL/entity.hpp>
 
 Entity::Entity() {
-
+    glGenVertexArrays(1, &this->VAO);
+    glGenBuffers(1, &this->VBO);
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
 }
 
 Entity::~Entity() {
-
+    glDeleteVertexArrays(1, &this->VAO);
+    glDeleteBuffers(1, &this->VBO);
 }
 
 void Entity::Update(float delta_time) {
@@ -38,4 +42,12 @@ glm::vec3 Entity::GetRotation() const {
 
 glm::vec3 Entity::GetScale() const {
     return scale_;
+}
+
+std::shared_ptr<Shader> Entity::GetShader() const {
+    return shader_;
+}
+
+std::shared_ptr<Texture> Entity::GetTexture() const {
+    return texture_;
 }

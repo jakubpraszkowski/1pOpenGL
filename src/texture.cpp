@@ -34,6 +34,11 @@ Texture::~Texture()
     glDeleteTextures(1, reinterpret_cast<GLuint *>(&id_));
 }
 
+GLuint Texture::getId() const
+{
+    return id_;
+}
+
 /* Private methods */
 
 GLenum Texture::CheckFormat(uint64_t nr_channels)
