@@ -1,15 +1,15 @@
 #include <LearnOpenGL/entity.hpp>
 
 Entity::Entity() {
-    glGenVertexArrays(1, &this->VAO);
-    glGenBuffers(1, &this->VBO);
-    glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glGenVertexArrays(1, &this->VAO_);
+    glGenBuffers(1, &this->VBO_);
+    glBindVertexArray(VAO_);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO_);
 }
 
 Entity::~Entity() {
-    glDeleteVertexArrays(1, &this->VAO);
-    glDeleteBuffers(1, &this->VBO);
+    glDeleteVertexArrays(1, &this->VAO_);
+    glDeleteBuffers(1, &this->VBO_);
 }
 
 void Entity::Update(float delta_time) {
@@ -50,4 +50,12 @@ std::shared_ptr<Shader> Entity::GetShader() const {
 
 std::shared_ptr<Texture> Entity::GetTexture() const {
     return texture_;
+}
+
+unsigned int Entity::GetVAO() const {
+    return VAO_;
+}
+
+unsigned int Entity::GetVBO() const {
+    return VBO_;
 }

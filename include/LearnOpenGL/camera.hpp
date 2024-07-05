@@ -28,6 +28,9 @@ public:
 
     /* Getters and setters */
     glm::mat4 GetViewMatrix();
+    glm::vec3 GetPosition() const;
+    glm::vec3 GetFront() const;
+    glm::vec3 GetUp() const;
     float GetZoom() const;
     float GetYaw() const;
     float GetPitch() const;

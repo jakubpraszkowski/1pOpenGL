@@ -27,13 +27,17 @@ public:
     glm::vec3 GetScale() const;
     std::shared_ptr<Shader> GetShader() const;
     std::shared_ptr<Texture> GetTexture() const;
+    unsigned int GetVAO() const;
+    unsigned int GetVBO() const;
 
 protected:
-    unsigned int VBO = 0, VAO = 0;
+    unsigned int VAO_ = 0;
+    unsigned int VBO_ = 0;
     glm::vec3 position_ = glm::vec3(0.0f);
     glm::vec3 rotation_ = glm::vec3(0.0f);
     glm::vec3 scale_ = glm::vec3(1.0f);
-    std::vector<float> vertices = {};
+    std::vector<float> vertices_ = {};
+    std::vector<glm::vec3> cube_coords_ = {};
     std::shared_ptr<Texture> texture_ = nullptr;
     std::shared_ptr<Shader> shader_ = nullptr;
 };
